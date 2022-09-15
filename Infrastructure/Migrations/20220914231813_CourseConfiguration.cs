@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Infrastructure.Migrations
 {
-    public partial class CourseProperites : Migration
+    public partial class CourseConfiguration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Category",
+                name: "Categories",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -17,7 +17,7 @@ namespace Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Category", x => x.Id);
+                    table.PrimaryKey("PK_Categories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -25,16 +25,16 @@ namespace Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    Title = table.Column<string>(type: "TEXT", nullable: true),
-                    Language = table.Column<string>(type: "TEXT", nullable: true),
-                    Level = table.Column<string>(type: "TEXT", nullable: true),
-                    SubTitle = table.Column<string>(type: "TEXT", nullable: true),
+                    Title = table.Column<string>(type: "TEXT", maxLength: 150, nullable: false),
+                    Language = table.Column<string>(type: "TEXT", nullable: false),
+                    Level = table.Column<string>(type: "TEXT", nullable: false),
+                    SubTitle = table.Column<string>(type: "TEXT", nullable: false),
                     Students = table.Column<int>(type: "INTEGER", nullable: false),
-                    Description = table.Column<string>(type: "TEXT", nullable: true),
+                    Description = table.Column<string>(type: "TEXT", nullable: false),
                     Price = table.Column<float>(type: "REAL", nullable: false),
-                    Instructor = table.Column<string>(type: "TEXT", nullable: true),
-                    Image = table.Column<string>(type: "TEXT", nullable: true),
-                    Rating = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Instructor = table.Column<string>(type: "TEXT", nullable: false),
+                    Image = table.Column<string>(type: "TEXT", nullable: false),
+                    Rating = table.Column<decimal>(type: "decimal(18,1)", nullable: false),
                     CategoryId = table.Column<int>(type: "INTEGER", nullable: false),
                     LastUpdated = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
@@ -42,15 +42,15 @@ namespace Infrastructure.Migrations
                 {
                     table.PrimaryKey("PK_Courses", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Courses_Category_CategoryId",
+                        name: "FK_Courses_Categories_CategoryId",
                         column: x => x.CategoryId,
-                        principalTable: "Category",
+                        principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Learning",
+                name: "Learnings",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -60,9 +60,9 @@ namespace Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Learning", x => x.Id);
+                    table.PrimaryKey("PK_Learnings", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Learning_Courses_CourseId",
+                        name: "FK_Learnings_Courses_CourseId",
                         column: x => x.CourseId,
                         principalTable: "Courses",
                         principalColumn: "Id",
@@ -70,7 +70,7 @@ namespace Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Requirement",
+                name: "Requirements",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -80,9 +80,9 @@ namespace Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Requirement", x => x.Id);
+                    table.PrimaryKey("PK_Requirements", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Requirement_Courses_CourseId",
+                        name: "FK_Requirements_Courses_CourseId",
                         column: x => x.CourseId,
                         principalTable: "Courses",
                         principalColumn: "Id",
@@ -95,29 +95,29 @@ namespace Infrastructure.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Learning_CourseId",
-                table: "Learning",
+                name: "IX_Learnings_CourseId",
+                table: "Learnings",
                 column: "CourseId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Requirement_CourseId",
-                table: "Requirement",
+                name: "IX_Requirements_CourseId",
+                table: "Requirements",
                 column: "CourseId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Learning");
+                name: "Learnings");
 
             migrationBuilder.DropTable(
-                name: "Requirement");
+                name: "Requirements");
 
             migrationBuilder.DropTable(
                 name: "Courses");
 
             migrationBuilder.DropTable(
-                name: "Category");
+                name: "Categories");
         }
     }
 }
