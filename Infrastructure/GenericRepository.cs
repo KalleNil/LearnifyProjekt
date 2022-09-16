@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Entity;
 using Entity.Interfaces;
 using Entity.Specifications;
+using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure
