@@ -2,7 +2,7 @@ using System.Linq;
 using Entity.Specifications;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Data
+namespace Infrastructure
 {
     public class SpecificationEvaluator<T> where T : class
     {
@@ -23,6 +23,11 @@ namespace Infrastructure.Data
             if(spec.SortByDescending != null)
             {
                 query = query.OrderByDescending(spec.SortByDescending);
+            }
+
+            if(spec.IsPaging)
+            {
+                query = query.Skip(spec.Skip).Take(spec.Take);
             }
 
             query = spec.Include.Aggregate(query, (current, include) => current.Include(include));
