@@ -18,6 +18,8 @@ namespace Infrastructure
 
         public DbSet<Learning> Learnings {get; set;}
 
+        public DbSet<Basket> Basket {get; set;}
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
            // This is how you can write the configuration in this file (For Learning and Requirement table)
