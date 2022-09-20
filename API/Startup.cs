@@ -38,13 +38,17 @@ namespace API
                x.UseSqlite(_config.GetConnectionString("DefaultConnection"),
              x => x.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)
                ));
-            services.AddCors(opt => 
-            {
-                opt.AddPolicy("CorsPolicy", policy => 
+            services.AddCors(opt =>
                 {
-                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+                    opt.AddPolicy("CorsPolicy", policy =>
+                        {
+                            policy
+                            .AllowAnyHeader()
+                            .AllowAnyMethod()
+                            .AllowCredentials()
+                            .WithOrigins("http://localhost:3000");
+                        });
                 });
-            });
 
             services.AddSwaggerGen(c =>
             {
