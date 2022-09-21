@@ -1,5 +1,5 @@
 import { Route, Switch } from 'react-router-dom';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 import './sass/main.scss';
 import DetailPage from './pages/DetailPage';
 import Homepage from './pages/Homepage';
