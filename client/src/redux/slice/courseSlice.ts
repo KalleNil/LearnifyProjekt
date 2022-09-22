@@ -42,3 +42,7 @@ import {
       });
     },
   });
+
+  export const coursesSelector = coursesAdapter.getSelectors(
+    (state: RootState) => state.course
+  );
