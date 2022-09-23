@@ -1,4 +1,3 @@
-
 import { createAsyncThunk, createSlice, isAnyOf } from "@reduxjs/toolkit";
 import agent from "../../actions/agent";
 import { Login, Register, User } from "../../models/user";
@@ -17,6 +16,7 @@ export const signInUser = createAsyncThunk<User, Login>(
     try {
       const user = await agent.Users.login(data);
       localStorage.setItem("user", JSON.stringify(user));
+
       return user;
     } catch (err: any) {
       return thunkAPI.rejectWithValue({ error: err });
@@ -40,7 +40,12 @@ export const registerUser = createAsyncThunk<User, Register>(
 export const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    signOut: (state) => {
+      state.user = null;
+      localStorage.removeItem("user");
+    },
+  },
   extraReducers: (builder) => {
     builder.addMatcher(
       isAnyOf(signInUser.fulfilled, registerUser.fulfilled),
@@ -48,10 +53,13 @@ export const userSlice = createSlice({
         state.user = action.payload;
       }
     );
-     builder.addMatcher(
+    builder.addMatcher(
       isAnyOf(signInUser.rejected, registerUser.rejected),
       (state, action) => {
-        throw action.payload;      }
+        throw action.payload;
+      }
     );
   },
 });
+
+export const { signOut } = userSlice.actions;
