@@ -1,19 +1,23 @@
-import { Button, Card, Form, Input, Typography } from "antd";
-import { Content } from "antd/lib/layout/layout";
-import { ChangeEvent, SyntheticEvent, useState } from "react";
-import agent from "../actions/agent";
-import { Register } from "../models/user";
+import { Button, Card, Form, Input, Typography } from 'antd';
+import { Content } from 'antd/lib/layout/layout';
+import { ChangeEvent, SyntheticEvent, useState } from 'react';
+import agent from '../actions/agent';
+import { Register } from '../models/user';
 
 const { Text, Title } = Typography;
 
-const RegisterComponent = () => {
+interface Props {
+  toggleRegister: () => void;
+}
+
+const RegisterComponent = ({ toggleRegister }: Props) => {
   const [values, setValues] =
     useState <
     Register >
     ({
-      email: "",
-      password: "",
-      username: "",
+      email: '',
+      password: '',
+      username: '',
     });
 
   const { email, password, username } = values;
@@ -31,7 +35,7 @@ const RegisterComponent = () => {
       username.length >= 5
     ) {
       const response = await agent.Users.register(values);
-      setValues({ ...values, email: "", password: "", username: "" });
+      setValues({ ...values, email: '', password: '', username: '' });
       console.log(response);
     }
   };
@@ -62,7 +66,7 @@ const RegisterComponent = () => {
               rules={[
                 {
                   required: true,
-                  message: "Please input your username!",
+                  message: 'Please input your username!',
                   min: 5,
                 },
               ]}
@@ -75,7 +79,7 @@ const RegisterComponent = () => {
               rules={[
                 {
                   required: true,
-                  message: "Please input your email!",
+                  message: 'Please input your email!',
                   pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                 },
               ]}
@@ -89,7 +93,7 @@ const RegisterComponent = () => {
               rules={[
                 {
                   required: true,
-                  message: "Please input your password!",
+                  message: 'Please input your password!',
                   min: 6,
                 },
               ]}
@@ -107,7 +111,9 @@ const RegisterComponent = () => {
             </Form.Item>
           </Form>
         </Content>
-        <div className="log-in-card__toggle">Already a User? Sign in</div>
+        <div onClick={toggleRegister} className="log-in-card__toggle">
+          Already a User? Sign in
+        </div>
       </Card>
     </>
   );
