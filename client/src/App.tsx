@@ -14,6 +14,7 @@ import { fetchBasketAsync } from './redux/slice/basketSlice';
 import { getUser } from './redux/slice/userSlice';
 import Dashboard from './components/Dashboard';
 import DescriptionPage from './pages/DescriptionPage';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -34,7 +35,7 @@ function App() {
         <Route exact path="/category/:id" component={CategoryPage} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/detail" component={DetailPage} />
-        <Route exact path="/profile" component={Dashboard} />
+        <PrivateRoute exact path="/profile" component={Dashboard} />
       </Switch>
     </>
   );
