@@ -8,7 +8,7 @@ import CheckoutPage from '../pages/CheckoutPage';
 import { setBasket } from '../redux/slice/basketSlice';
 import { useAppDispatch } from '../redux/store/configureStore';
 
-const stripePromise = loadStripe('your publishable key');
+const stripePromise = loadStripe('pk_test_51LlLIuJQMtDY1AYpaw6BXeu8zPAdttooMRT5rP0voCkBrofjQtOgr49K4Qzz8XqWp3TITLXIqlwYxETcqLcKpquf00E6hmMjKA');
 
 export default function CheckoutWrapper() {
   const dispatch = useAppDispatch();
