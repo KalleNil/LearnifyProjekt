@@ -11,18 +11,18 @@ import CategoryPage from './pages/CategoryPage';
 import BasketPage from './pages/BasketPage';
 import { useAppDispatch } from './redux/store/configureStore';
 import { fetchBasketAsync } from './redux/slice/basketSlice';
-import { getUser } from './redux/slice/userSlice';
 import Dashboard from './components/Dashboard';
 import DescriptionPage from './pages/DescriptionPage';
 import PrivateRoute from './components/PrivateRoute';
 import CheckoutPage from './pages/CheckoutPage';
+import { fetchCurrentUser } from './redux/slice/userSlice';
 
 function App() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchBasketAsync());
-    dispatch(getUser());
+    dispatch(fetchCurrentUser());
   }, [dispatch]);
 
   return (
