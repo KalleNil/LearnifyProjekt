@@ -16,7 +16,7 @@ import Dashboard from './components/Dashboard';
 import { fetchCurrentUser } from './redux/slice/userSlice';
 import PrivateRoute from './components/PrivateRoute';
 import Loading from './components/Loading';
-import CheckoutPage from './components/Checkout';
+import CheckoutPage from './pages/CheckoutPage';
 
 function App() {
   const dispatch = useAppDispatch();

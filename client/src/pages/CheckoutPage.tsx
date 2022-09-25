@@ -4,7 +4,6 @@ import { loadStripe } from '@stripe/stripe-js';
 import { useEffect } from 'react';
 import agent from '../actions/agent';
 import Checkout from '../components/Checkout';
-import CheckoutPage from '../pages/CheckoutPage';
 import { setBasket } from '../redux/slice/basketSlice';
 import { useAppDispatch } from '../redux/store/configureStore';
 
