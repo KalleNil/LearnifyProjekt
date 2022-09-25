@@ -1,10 +1,10 @@
 import { Button, Card, Form, Input, notification, Typography } from "antd";
 import { Content } from "antd/lib/layout/layout";
 import { ChangeEvent, SyntheticEvent, useState } from "react";
-import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Register } from "../models/user";
 import { registerUser } from "../redux/slice/userSlice";
+import { useAppDispatch } from '../redux/store/configureStore';
 
 const { Text, Title } = Typography;
 
@@ -13,7 +13,8 @@ interface Props {
 }
 
 const RegisterComponent = ({ toggleRegister }: Props) => {
-  const dispatch = useDispatch();
+
+const dispatch = useAppDispatch();
 
   const [values, setValues] = useState<Register>({
     email: "",

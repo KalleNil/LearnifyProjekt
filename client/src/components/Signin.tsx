@@ -1,10 +1,10 @@
 import { Button, Card, Form, Input, notification, Typography } from "antd";
 import { Content } from "antd/lib/layout/layout";
 import { ChangeEvent, SyntheticEvent, useState } from "react";
-import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Login } from "../models/user";
 import { signInUser } from "../redux/slice/userSlice";
+import { useAppDispatch } from '../redux/store/configureStore';
 
 const { Text, Title } = Typography;
 
@@ -18,7 +18,7 @@ const Signin = ({ toggleRegister }: Props) => {
     password: "",
   });
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const { email, password } = values;
 
