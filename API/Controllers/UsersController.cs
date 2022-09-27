@@ -1,17 +1,15 @@
 using System.Linq;
 using System.Threading.Tasks;
-using System.Text.Json;
 using API.Dto;
+using Entity;
 using API.ErrorResponse;
 using AutoMapper;
-using Entity;
 using Infrastructure;
 using Infrastructure.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
@@ -42,7 +40,7 @@ namespace API.Controllers
 
             var userBasket = await ExtractBasket(user.UserName);
             var basket = await ExtractBasket(Request.Cookies["clientId"]);
-             var courses = _context.UserCourses.AsQueryable();
+            var courses = _context.UserCourses.AsQueryable();
 
             if (basket != null)
             {
@@ -88,30 +86,29 @@ namespace API.Controllers
         }
 
         [Authorize]
-         [HttpPost("purchaseCourses")]
-         public async Task<ActionResult> AddCourses()
-         {
-             var basket = await ExtractBasket(User.Identity.Name);
+        [HttpPost("purchaseCourses")]
+        public async Task<ActionResult> AddCourses()
+        {
+            var basket = await ExtractBasket(User.Identity.Name);
 
-             var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
 
-            foreach(BasketItem course in basket.Items)
-            {
-                  var userCourse = new UserCourse
-                  {
-                    CourseId = course.CourseId,
-                    UserId = user.Id
-                  };
-                    _context.UserCourses.Add(userCourse);
-            }
+        foreach(BasketItem course in basket.Items)
+        {
+                var userCourse = new UserCourse
+                {
+                CourseId = course.CourseId,
+                UserId = user.Id
+                };
+                _context.UserCourses.Add(userCourse);
+        }
 
-            var result = await _context.SaveChangesAsync() > 0;
+        var result = await _context.SaveChangesAsync() > 0;
 
-            if (result) return Ok();
+        if (result) return Ok();
 
-              return BadRequest(new ApiResponse(400, "Problem adding Course"));
-
-         }
+            return BadRequest(new ApiResponse(400, "Problem adding Course"));
+        }
 
         [Authorize]
         [HttpGet("currentUser")]
@@ -132,7 +129,6 @@ namespace API.Controllers
             };
         }
 
-
         private async Task<Basket> ExtractBasket(string clientId)
         {
             if (string.IsNullOrEmpty(clientId))
@@ -144,7 +140,9 @@ namespace API.Controllers
                         .Include(b => b.Items)
                         .ThenInclude(i => i.Course)
                         .OrderBy(i => i.Id)
-                        .FirstOrDefaultAsync(x => x.ClientId == clientId);        }
+                        .FirstOrDefaultAsync(x => x.ClientId == clientId);
+
+        }
 
     }
 }

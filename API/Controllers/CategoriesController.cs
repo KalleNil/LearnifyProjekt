@@ -12,13 +12,13 @@ namespace API.Controllers
     public class CategoriesController : BaseController
     {
         private readonly IGenericRepository<Category> _repository;
-
         private readonly IMapper _mapper;
+
         public CategoriesController(IGenericRepository<Category> repository, IMapper mapper)
         {
-            _repository = repository;
             _mapper = mapper;
-            
+            _repository = repository;
+
         }
 
         [HttpGet]

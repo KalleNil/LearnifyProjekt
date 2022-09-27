@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import './sass/main.scss';
 import Navigation from './components/Navigation';
 import 'antd/dist/antd.min.css';
-import HomePage from './pages/HomePage';
+import HomePage from './pages/Homepage';
 import Login from './pages/Login';
 import DetailPage from './pages/DetailPage';
 import Categories from './components/Categories';
