@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { notification } from "antd";
 import agent from "../../actions/agent";
-import Courses from "../../components/Courses";
 import { Course } from "../../models/course";
 import { Login, Register, User } from "../../models/user";
 import { setBasket } from "./basketSlice";

@@ -8,9 +8,7 @@ namespace API.Dto
         public string Email { get; set; }
 
         public string Token { get; set; }
-
         public BasketDto Basket { get; set; }
-
         public List<Course> Courses { get; set; }
     }
 }

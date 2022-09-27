@@ -47,7 +47,7 @@ namespace API.Controllers
 
             if (course == null) return NotFound(new ApiResponse(404));
 
-            basket.AddCourse(course);
+            basket.AddCourseItem(course);
 
             var basketResponse = _mapper.Map<Basket, BasketDto>(basket);
 
@@ -65,7 +65,7 @@ namespace API.Controllers
 
             if (basket == null) return NotFound();
 
-            basket.RemoveCourse(courseId);
+            basket.RemoveCourseItem(courseId);
 
             var result = await _context.SaveChangesAsync() > 0;
 
@@ -90,6 +90,7 @@ namespace API.Controllers
               return BadRequest(new ApiResponse(400, "Problem clearing the basket"));
 
         }
+
 
         private Basket CreateBasket()
         {
