@@ -7,43 +7,44 @@ import { setBasket } from "./basketSlice";
 
 interface UserState {
   user: User | null;
-  userCourses: Course[]
+  userCourses: Course[];
 }
 
 const initialState: UserState = {
   user: null,
-  userCourses: []
+  userCourses: [],
 };
 
 export const fetchCurrentUser = createAsyncThunk<User>(
   "user/fetchCurrentUser",
   async (_, thunkAPI) => {
     thunkAPI.dispatch(setUser(JSON.parse(localStorage.getItem("user")!)));
-    try{
-      const userDto = await agent.Users.currentUser()
-      const {basket, courses, ...user} = userDto;
-      if(basket) thunkAPI.dispatch(setBasket(basket))
-      if(courses) thunkAPI.dispatch(setUserCourses)
-      localStorage.setItem("user", JSON.stringify(user))
+    try {
+      const userDto = await agent.Users.currentUser();
+      const { basket, courses, ...user } = userDto;
+      if (basket) thunkAPI.dispatch(setBasket(basket));
+      if (courses) thunkAPI.dispatch(setUserCourses(courses));
+      localStorage.setItem("user", JSON.stringify(user));
       return user;
-    }catch (error: any){
-      return thunkAPI.rejectWithValue({error: error})
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue({ error: error.data });
     }
   },
   {
     condition: () => {
-      if(!localStorage.getItem("user")) return false;
-    }
+      if (!localStorage.getItem("user")) return false;
+    },
   }
-)
+);
 
 export const signInUser = createAsyncThunk<User, Login>(
   "user/signin",
   async (data, thunkAPI) => {
     try {
       const userData = await agent.Users.login(data);
-      const { basket, ...user } = userData;
+      const { basket, courses, ...user } = userData;
       if (basket) thunkAPI.dispatch(setBasket(basket));
+      if (courses) thunkAPI.dispatch(setUserCourses(courses));
       localStorage.setItem("user", JSON.stringify(user));
       return user;
     } catch (err: any) {
@@ -78,30 +79,32 @@ export const userSlice = createSlice({
     },
     setUserCourses: (state, action) => {
       state.userCourses = action.payload;
-    }
+    },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchCurrentUser.rejected, (state) =>{
+    builder.addCase(fetchCurrentUser.rejected, (state) => {
       state.user = null;
       localStorage.removeItem("user");
       notification.error({
-        message: "Session has been expired"
+        message: "Session expired - please login again",
       });
     });
     builder.addMatcher(
-      isAnyOf(signInUser.fulfilled, registerUser.fulfilled, fetchCurrentUser.fulfilled),
+      isAnyOf(
+        signInUser.fulfilled,
+        registerUser.fulfilled,
+        fetchCurrentUser.fulfilled
+      ),
       (state, action) => {
         state.user = action.payload;
       }
     );
-    
     builder.addMatcher(
       isAnyOf(signInUser.rejected, registerUser.rejected),
       (state, action) => {
         throw action.payload;
       }
     );
-   
   },
 });
 
