@@ -84,3 +84,33 @@
   display: flex;  
   justify-content: center;
 }
+
+.tucImplement{
+  background-color: red;
+  animation-name: kungen;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+
+  @keyframes kungen {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
+  }
+}
+
+.testAnimation{
+  position: relative;
+  animation-name: drottningen;
+  animation-duration: 4s;
+  animation-direction: reverse; 
+  animation-iteration-count: infinite;
+  
+  @keyframes drottningen {
+    0%   {left:0px; top:0px;}
+    25%  {left:100px; top:0px;}
+    50% {left:200px; top:0px;}
+    75%  {left:100px; top:0px;}
+    100%  {left:0px; top:0px;}
+  }
+}
