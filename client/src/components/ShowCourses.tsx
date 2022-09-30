@@ -52,11 +52,21 @@ const ShowCourses = ({ course }: Props) => {
   return (
     <>
       <Col className="gutter-row testAnimation" span={spanVal}>
-        <Card
+       
+         
+
+          
+
+        
+        
+      
+      <div className="card">
+            <div className="content">
+            <Card
           hoverable
           cover={<img width="100%" alt="course-cover" src={course.image} />}
         >
-          <Link to={`/course/${course.id}`}>
+            <Link to={`/course/${course.id}`}>
             <div className="course__title">{course.title}</div>
           </Link>
           <div className="course__instructor">{course.instructor}</div>
@@ -87,8 +97,12 @@ const ShowCourses = ({ course }: Props) => {
               </div>
             )}
           </div>
-        </Card>
-      </Col>
+          </Card>
+            </div>Name
+          </div>
+
+          
+          </Col>
     </>
   );
 };
