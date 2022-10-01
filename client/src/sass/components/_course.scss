@@ -19,7 +19,7 @@
 
   &__title {
     margin-top: 5px;
-    color: black;
+    color: #2A0944;
     font-weight: bold;
     text-align: left;
     line-height: 1.5em;
@@ -69,9 +69,9 @@
     }
 
     &__cart {
-      color: white;
+      color: #2A0944;
       font-weight: bold;
-      background-color: $color-primary;
+      background-color: #FEC260;
       padding: 10px 15px;
       border-radius: 5px;
       font-size: 1rem;
@@ -84,3 +84,199 @@
   display: flex;  
   justify-content: center;
 }
+
+//Cards
+
+.cards-block {
+
+  padding: 20px;
+  
+}
+
+.cards-container {
+  padding-top: 30px;
+  display: flex;
+  width: 20%;
+  margin-right: 1000px;
+  
+
+  .card-body {
+    padding: 30px;
+    
+  }
+
+  .card:first-child {
+    margin-left: 0px;
+  }
+
+  .card {
+    border-radius: 20px;
+    height: 300px;
+    min-width: 350px;
+    background: linear-gradient(to right, #3FA796, #3FA796, #32b6a0, #2cc0a7);
+    transition: 0.2s;
+    margin-bottom: 3rem;
+    box-shadow: -1rem 0 3rem #000;
+    
+
+    h2 {
+      color: #2A0944;
+    }
+
+    h3 {
+      color: lightgrey;
+      display: inline;
+    }
+
+    h3.h3-small {
+      color: lightgrey;
+      display: inline;
+      font-weight: normal;
+      font-size: 0.9rem;
+    }
+  }
+
+  .card:hover {
+    margin-right: 8.5rem;
+    transform: rotateZ(8deg);
+  }
+
+  .tags {
+    color: #ff7a18;
+    display: inline;
+    font-size: 0.8rem;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: #262626;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+//overriding the existing ant imported background
+.ant-card-body{
+  background-color: #cc212100 !important;
+}
+.ant-card{
+  background-color: #cc212100 !important;
+}
+
+.ant-card-bordered {
+  border: 0px solid #f0f0f0 !important;
+}
+
+//text animation
+
+
+.textAnimation{
+  :root {
+    --main-bg-color: #f5f6fa;
+    --main-txt-color: blue; 
+    --main-padding: 15px; 
+  }
+  
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes write {
+    0% {
+      background-color: black;
+      clip-path: inset(0 99% 0 0);
+    }
+    50% {
+      background-color: black;
+      clip-path: inset(0 0 0 99.3%);
+    }
+    100% {
+      background-color: black;
+      clip-path: inset(0 0 0 99.3%);
+    }
+  }
+  
+  @keyframes showText {
+    0% {
+      clip-path: inset(0 0 0 0);
+    }
+    50% {
+      clip-path: inset(0 0 0 100%);
+    }
+    100% {
+      clip-path: inset(0 0 0 100%);
+    }
+  }
+  
+  html {
+    font-family: avenir;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--main-bg-color);
+  }
+  h1 {
+    position: relative;
+    margin: 0;
+  }
+  
+  h1 .bracet, h2 .bracet {
+    color: red;
+  }
+  
+  h1::before, h1::after, h2::before, h2::after {
+    content: '';
+    display: block;
+    width: 102%;
+    height: 100%;
+    background-color: var(--main-bg-color);
+    position: absolute;
+    clip-path: inset(0 0 0 0);
+    animation: showText 2s forwards linear;
+  }
+  
+  h1::after, h2::after {
+    background-color: transparent;
+    top: 0;
+    clip-path: inset(0 99% 0 0);
+    animation: blink 1s infinite, write 2s linear;
+  }
+  h2::before {
+    animation: showText 2s 2s forwards linear;
+  }
+  
+  h2::after {
+    animation: blink 1s 2s infinite, write 2s 2s forwards linear;
+  }
+  
+  h2 {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0 2px 0 0;
+  }
+  
+}
+
+h1,h2{
+  color: #2A0944 !important;
+}
+
+

@@ -20,7 +20,7 @@
       flex-direction: column;
       border-bottom: $border;
       padding: 3rem;
-      background-color: $color-secondary-dark;
+      background-color: #3FA796;
       color: white;
   
       &__details {
@@ -80,7 +80,7 @@
         &--name {
           margin-top: 5px;
           display: block;
-          color: $color-secondary-dark;
+          color: #3FA796;
         }
       }
   
@@ -88,7 +88,7 @@
         &--count {
           margin-top: 5px;
           display: block;
-          color: $color-secondary-dark;
+          color: #3FA796;
         }
       }
   
@@ -96,7 +96,7 @@
         &--name {
           margin-top: 5px;
           display: block;
-          color: $color-secondary-dark;
+          color: #3FA796;
         }
       }
     }
@@ -105,7 +105,7 @@
   
       &__title {
         font-size: 1.6rem;
-        color: $color-secondary-dark;
+        color: #3FA796;
         margin-bottom: 10px;
         font-weight: bold;
       }
@@ -124,7 +124,7 @@
   
       &__title {
         font-size: 1.6rem;
-        color: $color-secondary-dark;
+        color: #3FA796;
         margin-bottom: 10px;
         font-weight: bold;
       }
@@ -284,7 +284,7 @@
           }
         
           &--cart {
-            background-color: $color-primary;
+            background-color: #3FA796;
           }
         }
   

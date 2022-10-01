@@ -1,5 +1,5 @@
 .nav-container {
-  background-color: $color-grey-light-1;
+  background-color: 3FA796;
   margin: -10px;
   padding: 10px 5px;
 }
@@ -47,7 +47,7 @@
       list-style: none;
 
       &__item {
-        color: $color-grey-dark-1;
+        color: #2A0944;
         margin: 0 20px;
         font-size: 18px;
         font-weight: 600;
@@ -68,7 +68,7 @@
       width: 100%;
 
       &__input {
-        background-color: white;
+        background-color: 2A0944;
         border: solid 1px $color-grey-light-2;
         padding: 0.7rem 2rem;
         border-radius: 10px;
@@ -87,7 +87,7 @@
 
       &__button {
         border: none;
-        background-color: white;
+        background-color: 2A0944;
         position: absolute;
         right: 10px;
 
@@ -117,7 +117,7 @@
         position: absolute;
         bottom: 18px;
         left: 10px;
-        color: white;
+        color: 3FA796;
         background-color: $color-primary;
         border-radius: 50%;
         padding: 2px 10px;
@@ -176,4 +176,17 @@
 
 .dropdown {
   cursor: pointer;
+}
+
+//drop down design override
+.ant-dropdown-menu {
+  position: relative;
+  margin: 0;
+  padding: 4px 0;
+  text-align: left;
+  list-style-type: none;
+  background-color: #fec260 !important;
+  background-clip: padding-box;
+  border-radius: 2px;
+  outline: none;
 }

@@ -52,10 +52,14 @@ const ShowCourses = ({ course }: Props) => {
   return (
     <>
       <Col className="gutter-row" span={spanVal}>
-        <Card
-          hoverable
-          cover={<img width="100%" alt="course-cover" src={course.image} />}
-        >
+        
+        <div className="cards-block">
+    <div className="cards-container">
+    
+      
+      <div className="card">
+        <div className="card-body">
+        <Card>
           <Link to={`/course/${course.id}`}>
             <div className="course__title">{course.title}</div>
           </Link>
@@ -64,7 +68,7 @@ const ShowCourses = ({ course }: Props) => {
             {course.rating}
             <span>{showStars(course.rating)}</span>
           </div>
-          <div className="course__bottom">
+          
             <div className="course__bottom__price">{course.price}</div>
             {userCourses?.find((item: Course) => item.id === course.id) !==
             undefined ? (
@@ -86,9 +90,20 @@ const ShowCourses = ({ course }: Props) => {
                 Add to Cart
               </div>
             )}
-          </div>
-        </Card>
+          
+
+          
+
+          </Card>
+        </div>
+    </div>
+
+
+  </div>
+
+</div>
       </Col>
+      
     </>
   );
 };

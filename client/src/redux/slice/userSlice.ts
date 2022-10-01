@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { notification } from "antd";
-import { stat } from "fs";
 import agent from "../../actions/agent";
 import { Course } from "../../models/course";
 import { Login, Register, User } from "../../models/user";
@@ -100,7 +99,7 @@ export const userSlice = createSlice({
     },
     setUser: (state, action) => {
       let claims = JSON.parse(atob(action.payload.token.split('.')[1]));
-      let roles = claims ['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
+      let roles = claims['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
       state.user = {
         ...action.payload,
         roles: typeof roles === 'string' ? [roles] : roles,
@@ -130,7 +129,7 @@ export const userSlice = createSlice({
       ),
       (state, action) => {
         let claims = JSON.parse(atob(action.payload.token.split('.')[1]));
-      let roles = claims ['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
+      let roles = claims['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
       state.user = {
         ...action.payload,
         roles: typeof roles === 'string' ? [roles] : roles,

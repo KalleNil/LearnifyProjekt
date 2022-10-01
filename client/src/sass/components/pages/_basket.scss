@@ -45,7 +45,7 @@
 
       &__checkout {
         color: white;
-        background-color: $color-primary;
+        background-color: #2A0944;
         padding: 10px 40px;
         margin-top: 10px;
         display: flex;
@@ -56,4 +56,56 @@
       }
     }
   }
+  
+}
+//form div
+.sne {
+  background-color: #3fa796 !important;
+  border-radius: 25px !important;
+}
+
+//override ant form field
+.ant-input {
+  box-sizing: border-box;
+  margin: 0;
+  font-variant: tabular-nums;
+  list-style: none;
+  font-feature-settings: "tnum";
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-width: 0;
+  padding: 4px 11px;
+  color: rgba(0,0,0,.85);
+  font-size: 14px;
+  line-height: 1.5715;
+  background-color: rgb(255, 255, 255) !important;
+  background-image: none;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  transition: all .3s;
+}
+
+.ant-card-head-title {
+  display: inline-block;
+  flex: 1 1;
+  padding: 16px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #2A0944;
+}
+
+.ant-form-item-label>label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  height: 32px;
+  color: #2A0944 !important;
+  font-size: 14px;
+}
+.ant-empty-normal {
+  margin: 32px 0;
+  color: #3FA796 !important;
 }

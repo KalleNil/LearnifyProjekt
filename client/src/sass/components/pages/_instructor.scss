@@ -37,3 +37,11 @@
       justify-content: flex-end;
     }
   }
+
+  .instructor__left__courses {
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #3FA796;
+    border-radius: 20px;
+}

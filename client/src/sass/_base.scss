@@ -31,8 +31,17 @@ $border-dark: 2px solid #f4f2f2;
 
 html {
   box-sizing: border-box;
+  
 }
 
 body {
   font-family: $font-primary, sans-serif;
+  background-color: FEC260 !important;
+  
+}
+
+.ant-btn-primary {
+  color: #fff;
+  border-color: #2A0944 !important;
+  background: #2A0944 !important;
 }
