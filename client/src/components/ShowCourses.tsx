@@ -51,22 +51,16 @@ const ShowCourses = ({ course }: Props) => {
 
   return (
     <>
-      <Col className="gutter-row testAnimation" span={spanVal}>
-       
-         
-
-          
-
+      <Col className="gutter-row" span={spanVal}>
         
-        
+        <div className="cards-block">
+    <div className="cards-container">
+    
       
       <div className="card">
-            <div className="content">
-            <Card
-          hoverable
-          cover={<img width="100%" alt="course-cover" src={course.image} />}
-        >
-            <Link to={`/course/${course.id}`}>
+        <div className="card-body">
+        <Card>
+          <Link to={`/course/${course.id}`}>
             <div className="course__title">{course.title}</div>
           </Link>
           <div className="course__instructor">{course.instructor}</div>
@@ -79,30 +73,36 @@ const ShowCourses = ({ course }: Props) => {
             {userCourses?.find((item: Course) => item.id === course.id) !==
             undefined ? (
               <Link to={`/learn/${course.id}/${currentLecture}`} >
-                <div className="course__bottom__cart tucImplement">Go to Course</div>
+                <div className="course__bottom__cart">Go to Course</div>
               </Link>
             ) : basket?.items.find((item) => item.courseId === course.id) !==
               undefined ? (
               <Link to="/basket">
-                <div className="course__bottom__cart tucImplement">Go to Cart</div>
+                <div className="course__bottom__cart">Go to Cart</div>
               </Link>
             ) : (
               <div
                 onClick={() =>
                   dispatch(addBasketItemAsync({ courseId: course.id }))
                 }
-                className="course__bottom__cart tucImplement"
+                className="course__bottom__cart"
               >
                 Add to Cart
               </div>
             )}
           </div>
-          </Card>
-            </div>Name
-          </div>
 
-          
-          </Col>
+
+          </Card>
+        </div>
+    </div>
+
+
+  </div>
+
+</div>
+      </Col>
+      
     </>
   );
 };

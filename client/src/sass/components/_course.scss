@@ -19,7 +19,7 @@
 
   &__title {
     margin-top: 5px;
-    color: black;
+    color: #2A0944;
     font-weight: bold;
     text-align: left;
     line-height: 1.5em;
@@ -69,9 +69,9 @@
     }
 
     &__cart {
-      color: white;
+      color: rgb(206, 43, 43);
       font-weight: bold;
-      background-color: $color-primary;
+      background-color: #FEC260;
       padding: 10px 15px;
       border-radius: 5px;
       font-size: 1rem;
@@ -85,152 +85,96 @@
   justify-content: center;
 }
 
-.tucImplement{
-  background-color: red;
-  animation-name: kungen;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
+.cards-block {
 
-  @keyframes kungen {
-    0%   {background-color: red;}
-    25%  {background-color: yellow;}
-    50%  {background-color: blue;}
-    100% {background-color: green;}
-  }
-}
-
-/*.testAnimation{
-  position: relative;
-  animation-name: drottningen;
-  animation-duration: 4s;
-  animation-direction: reverse; 
-  animation-iteration-count: infinite;
-  
-  @keyframes drottningen {
-    0%   {left:0px; top:0px;}
-    25%  {left:100px; top:0px;}
-    50% {left:200px; top:0px;}
-    75%  {left:100px; top:0px;}
-    100%  {left:0px; top:0px;}
-  }
-}
-*/
-
-.card {
-  position:relative;
-  background: darkgray !important;
-  height: 70px;
-  width: 45px;
-  border-radius: 50%;
-  left: 90%;
-  top: 80%;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  animation-name: FABTOCARD;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-  margin-bottom: 200px;
+  padding: 20px;
   
 }
-.card div{
-  animation-name: CONTENT_ANIMATION;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-}
-@keyframes CONTENT_ANIMATION{
+
+.cards-container {
+  padding-top: 30px;
+  display: flex;
+  width: 20%;
+  margin-right: 1000px;
   
-  0% {
-    opacity:0;
+
+  .card-body {
+    padding: 30px;
+    
   }
-  10% {
-    opacity:0;
+
+  .card:first-child {
+    margin-left: 0px;
   }
-  25% {
-    opacity:0;
-  }
-  35% {
-    opacity:1;
-  }
-  60% {
-    opacity:1;
-  }
-  70% {
-    opacity:0;
-  }
-  90% {
-    opacity:0;
-  }
-  100% {
-    opacity:0;
-  }
-}
-@keyframes FABTOCARD {
-  0% {
-    background: darkgray;
-    height: 45px;
-    width: 45px;
-    border-radius: 50%;
-    left: 90%;
-    top: 80%;
-  }
-  10% {
-    background: darkgray;
-    height: 45px;
-    width: 45px;
-    border-radius: 50%;
-    left: 90%;
-    top: 80%;
-  }
-  25% {
-    background: darkgray;
-    height: 45px;
-    width: 45px;
-    border-radius: 50%;
-    left: 50%;
-    top: 50%;
-  }
-  35% {
-    background: darkgray;
+
+  .card {
+    border-radius: 20px;
     height: 300px;
-    width: 300px;
-    border-radius: 2px;
-    left: 42.5%;
-    top: 35%;
+    min-width: 350px;
+    background: linear-gradient(to right, #3FA796, #3FA796, #32b6a0, #2cc0a7);
+    transition: 0.2s;
+    margin-bottom: 3rem;
+    box-shadow: -1rem 0 3rem #000;
+    
+
+    h2 {
+      color: #2A0944;
+    }
+
+    h3 {
+      color: lightgrey;
+      display: inline;
+    }
+
+    h3.h3-small {
+      color: lightgrey;
+      display: inline;
+      font-weight: normal;
+      font-size: 0.9rem;
+    }
   }
-  60% {
-    background: darkgray;
-    height: 300px;
-    width: 300px;
-    border-radius: 2px;
-    left: 42.5%;
-    top: 35%;
+
+  .card:hover {
+    margin-right: 8.5rem;
+    transform: rotateZ(8deg);
   }
-  70% {
-    background: darkgray;
-    height: 45px;
-    width: 45px;
-    border-radius: 50%;
-    left: 50%;
-    top: 50%;
-  }
-  90% {
-    background: darkgray;
-    height: 45px;
-    width: 45px;
-    border-radius: 50%;
-    left: 90%;
-    top: 80%;
-  }
-  100% {
-    background: darkgray;
-    height: 45px;
-    width: 45px;
-    border-radius: 50%;
-    left: 90%;
-    top: 80%;
+
+  .tags {
+    color: #ff7a18;
+    display: inline;
+    font-size: 0.8rem;
   }
 }
 
-.testEmptyDiv{
-  height: 1000px;
-  width: 100%;
+/* width */
+::-webkit-scrollbar {
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: #262626;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+//overriding the existing ant imported background
+.ant-card-body{
+  background-color: #cc212100 !important;
+}
+.ant-card{
+  background-color: #cc212100 !important;
+}
+
+.ant-card-bordered {
+  border: 0px solid #f0f0f0 !important;
 }
