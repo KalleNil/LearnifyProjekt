@@ -67,3 +67,34 @@
     border: solid 1px #d9d9d9;
     padding: 7px;
   }
+
+  //bg design
+  .ant-table {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0,0,0,.85);
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: "tnum";
+    position: relative;
+    font-size: 14px;
+    background: #2a0944 !important;
+    border-radius: 2px;
+}
+
+.ant-table-thead>tr>th {
+  position: relative;
+  color: rgba(0,0,0,.85);
+  font-weight: 500;
+  text-align: left;
+  background: #3FA796 !important;
+  border-bottom: 0px solid #f0f0f0 !important;
+  transition: background .3s ease;
+}
+
+.ant-table-cell{
+  color: #3FA796;
+
+}

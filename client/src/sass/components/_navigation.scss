@@ -47,7 +47,7 @@
       list-style: none;
 
       &__item {
-        color: $color-grey-dark-1;
+        color: #2A0944;
         margin: 0 20px;
         font-size: 18px;
         font-weight: 600;
@@ -176,4 +176,17 @@
 
 .dropdown {
   cursor: pointer;
+}
+
+//drop down design override
+.ant-dropdown-menu {
+  position: relative;
+  margin: 0;
+  padding: 4px 0;
+  text-align: left;
+  list-style-type: none;
+  background-color: #fec260 !important;
+  background-clip: padding-box;
+  border-radius: 2px;
+  outline: none;
 }

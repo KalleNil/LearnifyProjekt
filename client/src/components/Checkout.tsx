@@ -74,7 +74,7 @@ const CheckoutPage = () => {
       <div className="checkout">
         <div className="checkout__form">
           <h1>Checkout Page</h1>
-          <Card title="Fill your Card details here">
+          <Card className='sne' title="Fill your Card details here">
             <Form name="payment" form={form} layout="vertical">
               <Form.Item
                 name="cardName"
@@ -91,18 +91,18 @@ const CheckoutPage = () => {
                 />
               </Form.Item>
               <Form.Item label="Card Number">
-                <div className="stripe-input">
+                <div className="stripe-input ant-input">
                   <CardNumberElement />
                 </div>
               </Form.Item>
               <div className="inline">
                 <Form.Item label="Expiry Date">
-                  <div className="stripe-input">
+                  <div className="stripe-input ant-input">
                     <CardExpiryElement />
                   </div>
                 </Form.Item>
                 <Form.Item label="CVV">
-                  <div className="stripe-input">
+                  <div className="stripe-input ant-input">
                     <CardCvcElement />
                   </div>
                 </Form.Item>

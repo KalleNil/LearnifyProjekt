@@ -69,7 +69,7 @@
     }
 
     &__cart {
-      color: rgb(206, 43, 43);
+      color: #2A0944;
       font-weight: bold;
       background-color: #FEC260;
       padding: 10px 15px;
@@ -84,6 +84,8 @@
   display: flex;  
   justify-content: center;
 }
+
+//Cards
 
 .cards-block {
 
@@ -178,3 +180,103 @@
 .ant-card-bordered {
   border: 0px solid #f0f0f0 !important;
 }
+
+//text animation
+
+
+.textAnimation{
+  :root {
+    --main-bg-color: #f5f6fa;
+    --main-txt-color: blue; 
+    --main-padding: 15px; 
+  }
+  
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes write {
+    0% {
+      background-color: black;
+      clip-path: inset(0 99% 0 0);
+    }
+    50% {
+      background-color: black;
+      clip-path: inset(0 0 0 99.3%);
+    }
+    100% {
+      background-color: black;
+      clip-path: inset(0 0 0 99.3%);
+    }
+  }
+  
+  @keyframes showText {
+    0% {
+      clip-path: inset(0 0 0 0);
+    }
+    50% {
+      clip-path: inset(0 0 0 100%);
+    }
+    100% {
+      clip-path: inset(0 0 0 100%);
+    }
+  }
+  
+  html {
+    font-family: avenir;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--main-bg-color);
+  }
+  h1 {
+    position: relative;
+    margin: 0;
+  }
+  
+  h1 .bracet, h2 .bracet {
+    color: red;
+  }
+  
+  h1::before, h1::after, h2::before, h2::after {
+    content: '';
+    display: block;
+    width: 102%;
+    height: 100%;
+    background-color: var(--main-bg-color);
+    position: absolute;
+    clip-path: inset(0 0 0 0);
+    animation: showText 2s forwards linear;
+  }
+  
+  h1::after, h2::after {
+    background-color: transparent;
+    top: 0;
+    clip-path: inset(0 99% 0 0);
+    animation: blink 1s infinite, write 2s linear;
+  }
+  h2::before {
+    animation: showText 2s 2s forwards linear;
+  }
+  
+  h2::after {
+    animation: blink 1s 2s infinite, write 2s 2s forwards linear;
+  }
+  
+  h2 {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0 2px 0 0;
+  }
+  
+}
+
+h1,h2{
+  color: #2A0944 !important;
+}
+
+

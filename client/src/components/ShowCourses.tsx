@@ -68,7 +68,7 @@ const ShowCourses = ({ course }: Props) => {
             {course.rating}
             <span>{showStars(course.rating)}</span>
           </div>
-          <div className="course__bottom">
+          
             <div className="course__bottom__price">{course.price}</div>
             {userCourses?.find((item: Course) => item.id === course.id) !==
             undefined ? (
@@ -90,8 +90,9 @@ const ShowCourses = ({ course }: Props) => {
                 Add to Cart
               </div>
             )}
-          </div>
+          
 
+          
 
           </Card>
         </div>
